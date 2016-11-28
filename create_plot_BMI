@@ -1,0 +1,66 @@
+df <- read.csv("P:/Coursera/BMI/20161128_testWrite3_mostRecent_trim.csv")
+library(MASS)
+summary(ols <- lm(MeanBMI_BothSexes ~ Physician.Density , data = df))
+
+models <- lapply(paste("MeanBMI_BothSexes", names(df)[-3], sep = "~"), formula)
+res.models <- lapply(models, FUN = function(x) {lm(formula = x, data = df)})
+names(res.models) <- paste("MeanBMI_BothSexes", names(df)[-3], sep = "~")
+
+result_names <- names(res.models)
+
+#this is to create all the visualizations
+for (i in 3:54){
+  name <- result_names[[i]]
+  mypath <- file.path("P:","Coursera","BMI","plot",paste(name,".jpg", sep = ""))
+  png(file=mypath,width = 800, height = 600)
+  # partition the graphics device
+  par(mfrow=c(2,2),oma=c(0,0,4,0))          
+  plot(res.models[[i]])
+  title(name,outer=TRUE)
+  dev.off()
+}
+
+#detecting outliers
+df <- df[-c(50,131,156),]
+View(df2)
+
+#parsing key grouped tables 
+for (i in 3){
+variable <- colnames(df)[[i]]
+number_missing <- sum(is.na(df[,i]))
+correlation <- cor(df[,3],df[,i],use="pairwise.complete.obs",method="pearson")
+quartile <- quantile(df[,i],na.rm=TRUE)
+min <- quartile[[1]]
+first_quartile <- quartile[[2]]
+median <- quartile[[3]]
+third_quartile <- quartile[[4]]
+max <- quartile[[5]]
+mean <- mean(df[,i],na.rm=TRUE)
+variance <- var(df[,3],df[,i],use="pairwise.complete.obs")
+standard_dev <- variance^0.5
+
+row <- cbind(variable , number_missing , correlation ,min , first_quartile , median , third_quartile , max , mean , variance , standard_dev )
+}
+
+result <- row
+
+for (i in 4:55){
+  variable <- colnames(df)[[i]]
+  number_missing <- sum(is.na(df[,i]))
+  correlation <- cor(df[,3],df[,i],use="pairwise.complete.obs",method="pearson")
+  quartile <- quantile(df[,i],na.rm=TRUE)
+  min <- quartile[[1]]
+  first_quartile <- quartile[[2]]
+  median <- quartile[[3]]
+  third_quartile <- quartile[[4]]
+  max <- quartile[[5]]
+  mean <- mean(df[,i],na.rm=TRUE)
+  variance <- var(df[,3],df[,i],use="pairwise.complete.obs")
+  standard_dev <- variance^0.5
+  
+  row <- cbind(variable , number_missing , correlation ,min , first_quartile , median , third_quartile , max , mean , variance , standard_dev )
+
+result <- rbind(result,row)
+}
+
+write.csv(result,"P:/Coursera/BMI/key_stats_removeoutliers.csv")
