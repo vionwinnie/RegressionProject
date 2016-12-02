@@ -1,0 +1,24 @@
+Data Science Track (Practical)					
+University	Length	Links	Can apply to other programs?		
+CMU	1-yr	http://www.stat.cmu.edu/msp/curriculum.html			
+NCSU	1-yr	http://analytics.ncsu.edu/			
+Harvard	1 or 2	http://www.seas.harvard.edu/sites/default/files/files/Graduate%20Program%20in%20Computational%20Science%20and%20Engineering/BROCHURE%20FINAL%20-%20FOR%20WEBSITE.pdf			
+Stanford	2	https://statistics.stanford.edu/academics/ms-statistics			
+MIT	1	http://mitsloan.mit.edu/master-of-business-analytics/program-components/	Yes		
+University of Washington	2	https://www.datasciencemasters.uw.edu/details/			
+John Hopkins	2	https://ep.jhu.edu/programs-and-courses/programs/data-science	Can be completed online too		
+					
+					
+					
+					
+					
+					Chicago
+					Upenn
+					
+					
+Statistics (Masters)					
+University	Length	Links	Can apply PhD as well?		
+Duke	2-yr	http://stat.duke.edu/ms-program/ms-statistical-science	Yes		
+Berkeley	1-yr	http://statistics.berkeley.edu/programs/graduate/admissions/faq	No		
+Harvard	2-yr	http://statistics.fas.harvard.edu/pages/graduate-statistics-general-information	?		
+Washington	1.5yr	https://www.stat.washington.edu/graduate/programs/newPhd/	?		
